@@ -76,7 +76,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $post = Post::find($post)->first();
+       
+        return view('postPages.show', compact('post'));
     }
 
     /**
