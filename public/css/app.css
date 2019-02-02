@@ -11,3 +11,14 @@
     overflow: hidden;
     text-overflow: ellipsis;  
 }
+.card-img-top{
+    height: 200px;
+    overflow: hidden;
+}
+.card-img-top{
+    background-position: center;
+    background-size: cover;
+}
+.itemHome{
+    cursor: pointer;
+}

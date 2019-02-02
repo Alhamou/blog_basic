@@ -24,7 +24,7 @@
           </div>
         </li>
         <li class="nav-item @yield('show')">
-          <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Show Post</a>
+          <a class="nav-link " href="" tabindex="-1" aria-disabled="true">@yield('showTitle')</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
