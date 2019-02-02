@@ -32,7 +32,13 @@
     <h5 class="card-title">{{$post->title}}</h5>
     <p class="card-text">{{$post->body}}</p>
     <p class="card-text"><small class="text-muted">{{ \Carbon\Carbon::parse($post->created_at)->format('d/m/y - h: i a')}}</small></p>
-
+    
+    <a href="/posts/{{$post->id}}/edit">
+        <button class="btn btn-info">Edit Item</button>
+    </a>
+    <form action="">
+        
+    </form>
 </div>
 
 

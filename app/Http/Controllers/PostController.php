@@ -58,7 +58,6 @@ class PostController extends Controller
             $post->image = $name; # add Image name to Database.
         }
 
-        
 
         $post->title = $request->title;
         $post->body = $request->body;
@@ -91,8 +90,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
-    {
-        //
+    {   
+        $post = Post::find($post)->first();
+
+        return view('postPages.edit', compact('post'));
     }
 
     /**
@@ -104,7 +105,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        return "<h1>Up</h1>";
     }
 
     /**
