@@ -14,15 +14,23 @@
 <div class="row ">
 
     @foreach($posts as $post)
-        <div class="col-lg-3 col-sm-6 itemHome" title="{{$post->title}}" onclick="window.location.href = '/posts/{{$post->id}}'">
-                <div class="card">
-                        <div class="card-img-top" style="background-image: url({{'/storage/uploads/images/'.$post->image}})" alt="Card image cap"></div>
+        <div class="col-lg-3 col-sm-6 " title="{{$post->title}}" onclick="window.location.href = '/posts/{{$post->id}}'">
+                <div class="card itemHome">
+                       
+                       <div class="card-img-top" style="background-image: url(
+                            @unless($post->image)
+                                /storage/uploads/noImage.png
+                            @else
+                                {{'/storage/uploads/images/'.$post->image}}
+                            @endunless
+                            )" alt="Card image cap">
+                        </div>
+
                         <div class="card-body">
                         <h5 class="card-title itemTitle">{{$post->title}}</h5>
                             <p class="card-text itemBody">{{$post->body}}</p>
                             <p class="card-text"><small class="text-muted">{{ \Carbon\Carbon::parse($post->created_at)->format('d/m/y - h: i a')}}</small></p>
 
-                            <a href="/posts/{{$post->id}}" class="btn btn-primary">Open Item</a>
                         </div>
                  </div>
                  <br>

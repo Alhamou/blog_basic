@@ -39,6 +39,7 @@ class PostController extends Controller
     {
 
 
+        $post = new Post;
 
         $validatedData = $request->validate([
             'title' => 'required|max:255',
@@ -53,13 +54,15 @@ class PostController extends Controller
             $extn = $file->getClientOriginalExtension();
             $name = time() .'.'. $extn;
             $path = $file->storeAs('public/uploads/images',$name);
+
+            $post->image = $name; # add Image name to Database.
         }
 
-        $post = new Post;
+        
 
         $post->title = $request->title;
         $post->body = $request->body;
-        $post->image = $name;
+        
         $post->save();
 
         return redirect('/');

@@ -14,7 +14,7 @@ class AddImageColumnToPosts extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('image');
+            $table->string('image')->default('');
         });
     }
 
@@ -26,7 +26,7 @@ class AddImageColumnToPosts extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            Schema::dropColumn('image');
+            Schema::dropIfExists('posts');
         });
     }
 }

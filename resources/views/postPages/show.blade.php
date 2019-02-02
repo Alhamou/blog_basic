@@ -18,7 +18,16 @@
 
 <div class="container">
 <div class="card mb-3">
-<div class="card-img-top" style="background-image: url({{'/storage/uploads/images/'.$post->image}})" alt="Card image cap"></div>
+
+    <div class="card-img-top" style="background-image: url( 
+        @unless($post->image)
+            /storage/uploads/noImage.png
+        @else 
+            {{'/storage/uploads/images/'.$post->image}} 
+        @endunless 
+        )" alt="Card image cap">
+    </div>
+
 <div class="card-body">
     <h5 class="card-title">{{$post->title}}</h5>
     <p class="card-text">{{$post->body}}</p>
