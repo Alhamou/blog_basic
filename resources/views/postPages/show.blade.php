@@ -31,24 +31,34 @@
 <div class="card-body">
     <h5 class="card-title">{{$post->title}}</h5>
     <p class="card-text">{{$post->body}}</p>
-    <p class="card-text"><small class="text-muted">{{ \Carbon\Carbon::parse($post->created_at)->format('d/m/y - h: i a')}}</small></p>
-    
-    <a href="/posts/{{$post->id}}/edit">
-        <button class="btn btn-info">Edit Item</button>
-    </a>
-    <form action="">
-        
-    </form>
+    <p class="card-text"><small class="text-muted">{{ \Carbon\Carbon::parse($post->created_at)->format('d/m/y - h: i a')}} <i class="far fa-clock"></i></small></p>
+    <div class="row">
+        <a href="/posts/{{$post->id}}/edit" class="col">
+            <button class="btn btn-info "><i class="far fa-edit"></i> Edit Item</button>
+        </a>
+        <form class="" action="/posts/{{$post->id}}" method="POST">
+            @method('DELETE')
+            @csrf
+            <button type="submit" class="btn btn-danger confirm_delete"><i class="fas fa-trash-alt"></i> Delete Item</button>&nbsp;&nbsp;&nbsp;
+        </form>
+    </div>
 </div>
 
 
 </div>
-<button class="btn btn-info" onclick="window.history.back()">Go Back</button>
+<button class="btn btn-light" onclick="window.history.back()"><i class="fas fa-arrow-left"></i> Go Back</button>
+
 
 </div>
 @endsection
 @section('footer')
     @include('partials.footer')
+
+    <script>
+            $('.confirm_delete').click(function(){
+                return confirm('Are you Shur');
+            });
+    </script>
 @endsection
 
 

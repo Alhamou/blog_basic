@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddImageColumnToPosts extends Migration
+class AddDeletedAtToPost extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddImageColumnToPosts extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('image')->nullable();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 

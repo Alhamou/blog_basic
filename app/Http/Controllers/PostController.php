@@ -6,7 +6,6 @@ use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
-
 class PostController extends Controller
 {
     /**
@@ -115,7 +114,9 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
-    {
-        //
+    {       
+   
+        Post::find($post->id)->delete();
+        return redirect('/');
     }
 }
